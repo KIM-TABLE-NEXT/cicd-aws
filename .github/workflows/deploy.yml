@@ -50,13 +50,13 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
             task-definition: task-definition.json
-            container-name: <container-name>
+            container-name: test-container
             image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition (태스크 배포)
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: <service-name>
-          cluster: <cluster-name>
+          service: test-service
+          cluster: ECS-test-cluster
           wait-for-service-stability: true

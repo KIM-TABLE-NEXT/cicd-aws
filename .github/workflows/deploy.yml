@@ -44,7 +44,7 @@ jobs:
 
       - name: Download task definition (태스크 다운로드)
         run: |
-          aws ecs describe-task-definition --task-definition taskdef --query taskDefinition > task-definition.json
+          aws ecs describe-task-definition --task-definition ECS-test-task --query taskDefinition > task-definition.json
       - name: Fill in the new image ID in the Amazon ECS task definition (도커 이미지 ID 갱신)
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
